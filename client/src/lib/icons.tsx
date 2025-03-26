@@ -19,7 +19,7 @@ export const BeaverIcon = ({ className = "w-6 h-6" }: { className?: string }) =>
   return (
     <div className={className} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <img 
-        src="/beaver.png" 
+        src="/public/beaver.png" 
         alt="Beaver Logo" 
         style={{ width: '100%', height: '100%', objectFit: 'contain' }}
       />
