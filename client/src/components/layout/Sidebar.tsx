@@ -11,22 +11,23 @@ interface SidebarItemProps {
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({ href, icon, children, isActive }) => {
+  const [, setLocation] = useLocation();
+  
   return (
-    <Link href={href}>
-      <a
-        className={cn(
-          "sidebar-item flex items-center px-2 py-3 text-sm font-medium rounded-md group",
-          isActive
-            ? "active border-l-4 border-primary bg-opacity-10 bg-primary text-primary"
-            : "hover:bg-opacity-5 hover:bg-primary"
-        )}
-      >
-        <div className={cn("w-6 h-6 mr-3", isActive ? "text-primary" : "text-textLight")}>
-          {icon}
-        </div>
-        <span className={isActive ? "text-primary" : ""}>{children}</span>
-      </a>
-    </Link>
+    <div
+      onClick={() => setLocation(href)}
+      className={cn(
+        "sidebar-item flex items-center px-2 py-3 text-sm font-medium rounded-md group cursor-pointer",
+        isActive
+          ? "active border-l-4 border-primary bg-opacity-10 bg-primary text-primary"
+          : "hover:bg-opacity-5 hover:bg-primary"
+      )}
+    >
+      <div className={cn("w-6 h-6 mr-3", isActive ? "text-primary" : "text-textLight")}>
+        {icon}
+      </div>
+      <span className={isActive ? "text-primary" : ""}>{children}</span>
+    </div>
   );
 };
 
