@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Bell, HelpCircle, Settings, MenuIcon } from 'lucide-react';
+import { HelpCircle, MenuIcon } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface TopBarProps {
@@ -10,26 +10,10 @@ interface TopBarProps {
 const TopBar: React.FC<TopBarProps> = ({ onMenuClick }) => {
   const { toast } = useToast();
 
-  const handleNotificationClick = () => {
-    toast({
-      title: "Notifications",
-      description: "Le système de notifications est en cours de développement.",
-      variant: "default",
-    });
-  };
-
   const handleHelpClick = () => {
     toast({
       title: "Aide",
       description: "La documentation est en cours de développement.",
-      variant: "default",
-    });
-  };
-
-  const handleSettingsClick = () => {
-    toast({
-      title: "Paramètres",
-      description: "Les paramètres sont en cours de développement.",
       variant: "default",
     });
   };
@@ -52,26 +36,10 @@ const TopBar: React.FC<TopBarProps> = ({ onMenuClick }) => {
             <Button 
               variant="ghost" 
               size="icon"
-              onClick={handleNotificationClick}
+              onClick={handleHelpClick}
               className="p-1 rounded-full text-primary hover:text-primary focus:outline-none"
             >
-              <Bell className="h-6 w-6" />
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="icon"
-              onClick={handleHelpClick}
-              className="ml-3 p-1 rounded-full text-primary hover:text-primary focus:outline-none"
-            >
               <HelpCircle className="h-6 w-6" />
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="icon"
-              onClick={handleSettingsClick}
-              className="ml-3 p-1 rounded-full text-primary hover:text-primary focus:outline-none"
-            >
-              <Settings className="h-6 w-6" />
             </Button>
           </div>
         </div>
