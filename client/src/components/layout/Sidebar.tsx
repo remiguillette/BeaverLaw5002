@@ -1,0 +1,124 @@
+import React from 'react';
+import { Link, useLocation } from 'wouter';
+import { cn } from '@/lib/utils';
+import { BeaverIcon } from '@/lib/icons';
+
+interface SidebarItemProps {
+  href: string;
+  icon: React.ReactNode;
+  children: React.ReactNode;
+  isActive: boolean;
+}
+
+const SidebarItem: React.FC<SidebarItemProps> = ({ href, icon, children, isActive }) => {
+  return (
+    <Link href={href}>
+      <a
+        className={cn(
+          "sidebar-item flex items-center px-2 py-3 text-sm font-medium rounded-md group",
+          isActive
+            ? "active border-l-4 border-primary bg-opacity-10 bg-primary text-primary"
+            : "hover:bg-opacity-5 hover:bg-primary"
+        )}
+      >
+        <div className={cn("w-6 h-6 mr-3", isActive ? "text-primary" : "text-textLight")}>
+          {icon}
+        </div>
+        <span className={isActive ? "text-primary" : ""}>{children}</span>
+      </a>
+    </Link>
+  );
+};
+
+interface SidebarProps {
+  isMobileOpen: boolean;
+  onCloseMobile: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile }) => {
+  const [location] = useLocation();
+
+  return (
+    <div 
+      className={cn(
+        "md:flex md:flex-shrink-0 transition-all duration-300 ease-in-out",
+        isMobileOpen ? "block absolute top-16 left-0 right-0 bottom-0 z-20" : "hidden"
+      )}
+    >
+      <div className="flex flex-col w-64 border-r border-dark-lighter bg-dark">
+        <div className="flex items-center justify-center h-16 px-4 py-5 bg-dark-lighter">
+          <div className="flex items-center space-x-2">
+            <BeaverIcon className="w-8 h-8 text-primary" />
+            <h1 className="text-xl font-bold tracking-wider text-primary font-montserrat">BeaverLaw</h1>
+          </div>
+        </div>
+        <div className="flex flex-col flex-grow overflow-y-auto">
+          <nav className="flex-1 px-2 py-4 space-y-1">
+            <SidebarItem
+              href="/"
+              icon={<i className="fas fa-tachometer-alt"></i>}
+              isActive={location === '/'}
+            >
+              Tableau de Bord
+            </SidebarItem>
+            <SidebarItem
+              href="/agents"
+              icon={<i className="fas fa-users"></i>}
+              isActive={location === '/agents'}
+            >
+              Gestion des Agents
+            </SidebarItem>
+            <SidebarItem
+              href="/animals"
+              icon={<i className="fas fa-paw"></i>}
+              isActive={location === '/animals'}
+            >
+              Gestion des Animaux
+            </SidebarItem>
+            <SidebarItem
+              href="/lost-found"
+              icon={<i className="fas fa-search"></i>}
+              isActive={location === '/lost-found'}
+            >
+              Animaux Perdus/Trouvés
+            </SidebarItem>
+            <SidebarItem
+              href="/wanted"
+              icon={<i className="fas fa-exclamation-triangle"></i>}
+              isActive={location === '/wanted'}
+            >
+              Avis de Recherche
+            </SidebarItem>
+            <SidebarItem
+              href="/regulations"
+              icon={<i className="fas fa-clipboard-list"></i>}
+              isActive={location === '/regulations'}
+            >
+              Application des Règlements
+            </SidebarItem>
+          </nav>
+          <div className="p-4 border-t border-dark-lighter">
+            <div className="flex items-center">
+              <div className="w-8 h-8 bg-dark-lighter rounded-full flex items-center justify-center">
+                <i className="fas fa-user text-primary"></i>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm font-medium">Agent Dubois</p>
+                <p className="text-xs text-gray-400">En ligne</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Backdrop for mobile to close sidebar */}
+      {isMobileOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-10"
+          onClick={onCloseMobile}
+        ></div>
+      )}
+    </div>
+  );
+};
+
+export default Sidebar;
