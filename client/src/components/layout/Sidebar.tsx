@@ -50,7 +50,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile }) => {
         <div className="flex items-center justify-center h-16 px-4 py-5 bg-dark">
           <div className="flex items-center space-x-2">
             <BeaverIcon className="w-8 h-8 text-primary" />
-            <h1 className="text-xl font-bold tracking-wider text-primary font-montserrat">BeaverLaw</h1>
+            <h1 className="text-xl font-bold tracking-wider text-primary font-montserrat">BEAVERLAW</h1>
           </div>
         </div>
         <div className="flex flex-col flex-grow overflow-y-auto">
@@ -104,7 +104,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile }) => {
                 <i className="fas fa-user text-primary"></i>
               </div>
               <div className="ml-3">
-                <p className="text-sm font-medium">Agent Dubois</p>
+                <p className="text-sm font-medium">Rémi Guillette Agent</p>
                 <p className="text-xs text-gray-400">En ligne</p>
               </div>
             </div>
