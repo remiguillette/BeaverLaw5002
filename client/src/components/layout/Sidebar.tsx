@@ -100,9 +100,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile }) => {
           </nav>
           <div className="p-4 mt-auto border-t border-dark-lighter">
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-dark-lighter rounded-full overflow-hidden ring-2 ring-primary/20">
-                <img src="/beaver.png" alt="Profile" className="w-full h-full object-cover" />
-              </div>
+              <BeaverIcon className="w-10 h-10" asProfile={true} />
               <div className="ml-3">
                 <p className="text-sm font-medium text-white">Rémi Guillette Agent</p>
                 <p className="text-xs text-primary">En ligne</p>

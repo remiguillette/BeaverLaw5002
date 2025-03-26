@@ -16,13 +16,13 @@ export const AnimalIcon = ({ className = "w-6 h-6" }: { className?: string }) =>
   </svg>
 );
 
-export const BeaverIcon = ({ className = "w-6 h-6" }: { className?: string }) => {
+export const BeaverIcon = ({ className = "w-6 h-6", asProfile = false }: { className?: string, asProfile?: boolean }) => {
   return (
-    <div className={className}>
+    <div className={`${className} ${asProfile ? 'ring-2 ring-primary/20 rounded-full overflow-hidden' : ''}`}>
       <img 
         src={beaverImage} 
         alt="Beaver Logo" 
-        className="w-full h-full object-contain"
+        className={`w-full h-full ${asProfile ? 'object-cover' : 'object-contain'}`}
       />
     </div>
   );
