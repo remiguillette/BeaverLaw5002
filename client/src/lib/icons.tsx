@@ -1,6 +1,7 @@
-import React from 'react';
 
-// Collection of custom SVG icons for the application
+import React from 'react';
+import beaverImage from '/beaver.png';
+
 export const PoliceBadgeIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
     <path d="M12 2L9 7L3 8.5L7 13L6 19L12 16L18 19L17 13L21 8.5L15 7L12 2Z" />
@@ -19,13 +20,19 @@ export const BeaverIcon = ({ className = "w-6 h-6" }: { className?: string }) =>
   return (
     <div className={className}>
       <img 
-        src="/beaver.png" 
+        src={beaverImage} 
         alt="Beaver Logo" 
         className="w-full h-full object-contain"
       />
     </div>
   );
 };
+
+export const DeerIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M7 3h1m9 0h1M8 3v8m8-8v8M4 11h16M12 11v10M7 16h10M5 21h3m8 0h3" />
+  </svg>
+);
 
 export const BearIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -47,11 +54,5 @@ export const WolfIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
     <circle cx="10" cy="7" r="1" />
     <circle cx="14" cy="7" r="1" />
     <path d="M9 11h6M12 11v3" />
-  </svg>
-);
-
-export const DeerIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M7 3h1m9 0h1M8 3v8m8-8v8M4 11h16M12 11v10M7 16h10M5 21h3m8 0h3" />
   </svg>
 );
