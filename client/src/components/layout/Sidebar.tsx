@@ -17,16 +17,16 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ href, icon, children, isActiv
     <div
       onClick={() => setLocation(href)}
       className={cn(
-        "sidebar-item flex items-center px-2 py-3 text-sm font-medium rounded-md group cursor-pointer",
+        "sidebar-item flex items-center px-4 py-3 text-sm font-medium rounded-md group cursor-pointer",
         isActive
-          ? "active border-l-4 border-primary bg-opacity-10 bg-primary text-primary"
-          : "hover:bg-opacity-5 hover:bg-primary"
+          ? "bg-primary bg-opacity-10 text-primary"
+          : "hover:bg-dark-lighter"
       )}
     >
-      <div className={cn("w-6 h-6 mr-3", isActive ? "text-primary" : "text-textLight")}>
+      <div className={cn("w-6 h-6 mr-3", isActive ? "text-primary" : "text-gray-300")}>
         {icon}
       </div>
-      <span className={isActive ? "text-primary" : ""}>{children}</span>
+      <span className={isActive ? "text-primary" : "text-gray-100"}>{children}</span>
     </div>
   );
 };
@@ -46,15 +46,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile }) => {
         isMobileOpen ? "block absolute top-16 left-0 right-0 bottom-0 z-20" : "hidden"
       )}
     >
-      <div className="flex flex-col w-64 border-r border-dark-lighter bg-dark">
-        <div className="flex items-center justify-center h-16 px-4 py-5 bg-dark-lighter">
+      <div className="flex flex-col w-64 bg-dark">
+        <div className="flex items-center justify-center h-16 px-4 py-5 bg-dark">
           <div className="flex items-center space-x-2">
             <BeaverIcon className="w-8 h-8 text-primary" />
             <h1 className="text-xl font-bold tracking-wider text-primary font-montserrat">BeaverLaw</h1>
           </div>
         </div>
         <div className="flex flex-col flex-grow overflow-y-auto">
-          <nav className="flex-1 px-2 py-4 space-y-1">
+          <nav className="flex-1 px-2 py-4 space-y-2">
             <SidebarItem
               href="/"
               icon={<i className="fas fa-tachometer-alt"></i>}
@@ -98,7 +98,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile }) => {
               Application des Règlements
             </SidebarItem>
           </nav>
-          <div className="p-4 border-t border-dark-lighter">
+          <div className="p-4 mt-auto">
             <div className="flex items-center">
               <div className="w-8 h-8 bg-dark-lighter rounded-full flex items-center justify-center">
                 <i className="fas fa-user text-primary"></i>

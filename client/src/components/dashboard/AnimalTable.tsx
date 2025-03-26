@@ -178,12 +178,12 @@ const AnimalTable: React.FC<AnimalTableProps> = ({ limit, showPagination = true 
                   </Badge>
                 </TableCell>
                 <TableCell className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                  <Link href={`/animals/${animal.id}`}>
-                    <a className="text-primary hover:text-primary-dark">Voir</a>
-                  </Link>
-                  <Link href={`/animals/${animal.id}/edit`}>
-                    <a className="ml-3 text-info hover:text-blue-400">Modifier</a>
-                  </Link>
+                  <div className="inline-block cursor-pointer" onClick={() => window.location.href = `/animals/${animal.id}`}>
+                    <span className="text-primary hover:text-primary-dark">Voir</span>
+                  </div>
+                  <div className="inline-block cursor-pointer ml-3" onClick={() => window.location.href = `/animals/${animal.id}/edit`}>
+                    <span className="text-info hover:text-blue-400">Modifier</span>
+                  </div>
                 </TableCell>
               </TableRow>
             ))}

@@ -44,13 +44,14 @@ const PageHeader: React.FC<PageHeaderProps> = ({
         
         {buttonLabel && (
           buttonLink ? (
-            <Link href={buttonLink}>
-              <a className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-opacity-90 focus:outline-none">
-                  <i className={`${buttonIcon} mr-2`}></i>{buttonLabel}
-                </Button>
-              </a>
-            </Link>
+            <div
+              onClick={() => window.location.href = buttonLink}
+              className="w-full sm:w-auto cursor-pointer"
+            >
+              <Button className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-opacity-90 focus:outline-none">
+                <i className={`${buttonIcon} mr-2`}></i>{buttonLabel}
+              </Button>
+            </div>
           ) : (
             <Button 
               className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-opacity-90 focus:outline-none"

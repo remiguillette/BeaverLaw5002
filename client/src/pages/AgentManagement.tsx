@@ -170,9 +170,12 @@ const AgentManagement: React.FC = () => {
                         </span>
                       </TableCell>
                       <TableCell className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <Button variant="ghost" size="sm" className="text-primary hover:text-primary-dark">
+                        <div 
+                          className="cursor-pointer inline-flex items-center text-primary hover:text-primary-dark"
+                          onClick={() => window.location.href = `/agents/${agent.id}/edit`}
+                        >
                           <i className="fas fa-edit mr-1"></i> Modifier
-                        </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
