@@ -107,7 +107,11 @@ const LostFound: React.FC = () => {
                 {isLoading ? (
                   <Skeleton className="h-full w-full" />
                 ) : (
-                  <Map markers={mapMarkers} />
+                  <Map 
+                    markers={mapMarkers} 
+                    center={{ lat: 46.8, lng: -71.2 }} 
+                    zoom={8}
+                  />
                 )}
               </div>
             </CardContent>

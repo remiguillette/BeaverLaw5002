@@ -93,12 +93,15 @@ const MapComponent: React.FC<MapProps> = ({
       leafletMapRef.current = null;
       markerRef.current = null;
     };
-  }, []);
+  }, [center, zoom]);
 
   // Add markers from props
   useEffect(() => {
     const map = leafletMapRef.current;
     if (!map) return;
+
+    // Create a collection to store markers for cleanup
+    const markerInstances: L.Marker[] = [];
 
     // Clear existing markers
     map.eachLayer((layer) => {
@@ -129,11 +132,26 @@ const MapComponent: React.FC<MapProps> = ({
         icon: icon || defaultIcon 
       }).addTo(map);
       
+      // Store reference for cleanup
+      markerInstances.push(markerInstance);
+      
       if (popup) {
         markerInstance.bindPopup(popup);
       }
     });
-  }, [markers]);
+
+    // Panel to Quebec City if no markers
+    if (markers.length === 0 && center) {
+      map.setView([center.lat, center.lng], zoom);
+    }
+
+    // Clean up markers on component unmount
+    return () => {
+      markerInstances.forEach(marker => {
+        if (map) marker.removeFrom(map);
+      });
+    };
+  }, [markers, center, zoom]);
 
   return <div ref={mapRef} style={{ width: '100%', height: '100%' }} />;
 };
