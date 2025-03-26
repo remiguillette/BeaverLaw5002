@@ -17,11 +17,11 @@ export const AnimalIcon = ({ className = "w-6 h-6" }: { className?: string }) =>
 
 export const BeaverIcon = ({ className = "w-6 h-6" }: { className?: string }) => {
   return (
-    <div className={className} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div className={className}>
       <img 
         src="/beaver.png" 
         alt="Beaver Logo" 
-        style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+        className="w-full h-full object-contain"
       />
     </div>
   );
