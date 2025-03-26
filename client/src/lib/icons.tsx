@@ -15,14 +15,17 @@ export const AnimalIcon = ({ className = "w-6 h-6" }: { className?: string }) =>
   </svg>
 );
 
-export const BeaverIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M19 7c0-3.87-3.13-7-7-7S5 3.13 5 7c0 3.87 3.13 7 7 7s7-3.13 7-7z" />
-    <path d="M12 14v10M8 18h8M19 7c0 2.76-2.24 5-5 5h-4c-2.76 0-5-2.24-5-5s2.24-5 5-5h4c2.76 0 5 2.24 5 5z" />
-    <path d="M7 7c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1-1 .45-1 1zM15 7c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1-1 .45-1 1z" />
-    <path d="M12 8v2M9 10h6" />
-  </svg>
-);
+export const BeaverIcon = ({ className = "w-6 h-6" }: { className?: string }) => {
+  return (
+    <div className={className} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <img 
+        src="/beaver.png" 
+        alt="Beaver Logo" 
+        style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+      />
+    </div>
+  );
+};
 
 export const BearIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>

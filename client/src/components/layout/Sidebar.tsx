@@ -19,14 +19,14 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ href, icon, children, isActiv
       className={cn(
         "sidebar-item flex items-center px-4 py-3 text-sm font-medium rounded-md group cursor-pointer",
         isActive
-          ? "bg-primary bg-opacity-10 text-primary"
+          ? "bg-primary bg-opacity-15 border-l-4 border-primary"
           : "hover:bg-dark-lighter"
       )}
     >
       <div className={cn("w-6 h-6 mr-3", isActive ? "text-primary" : "text-gray-300")}>
         {icon}
       </div>
-      <span className={isActive ? "text-primary" : "text-gray-100"}>{children}</span>
+      <span className={isActive ? "font-bold text-primary" : "text-gray-100"}>{children}</span>
     </div>
   );
 };

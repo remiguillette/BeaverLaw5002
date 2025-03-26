@@ -34,13 +34,14 @@ const Dashboard: React.FC = () => {
             onSearch={handleSearch}
             className="w-full sm:w-64"
           />
-          <Link href="/animals/new">
-            <a>
-              <Button className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-opacity-90 focus:outline-none">
-                <i className="fas fa-plus mr-2"></i>Nouveau
-              </Button>
-            </a>
-          </Link>
+          <div
+            onClick={() => window.location.href = "/animals"}
+            className="cursor-pointer"
+          >
+            <Button className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-opacity-90 focus:outline-none">
+              <i className="fas fa-plus mr-2"></i>Nouveau
+            </Button>
+          </div>
         </div>
       </div>
 
