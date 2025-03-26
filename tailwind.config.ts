@@ -44,6 +44,13 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        // Ajout de couleurs personnalisées pour le thème sombre
+        dark: {
+          DEFAULT: "#121212",
+          card: "#1E1E1E",
+          lighter: "#2A2A2A",
+        },
+        textLight: "#FFFFFF",
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
